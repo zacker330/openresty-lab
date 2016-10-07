@@ -1,0 +1,14 @@
+- hosts: node
+  sudo: yes
+
+  vars_files:
+    - ./vars/base-env.yml
+
+  vars:
+    - foo: "bar"
+
+    - multiline: |
+        test1
+        test2
+  roles:
+    - common
