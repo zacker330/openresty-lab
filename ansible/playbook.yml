@@ -12,3 +12,5 @@
         test2
   roles:
     - common
+    - openresty
+    - {role: "app", app_server_name: "192.168.8.10"}

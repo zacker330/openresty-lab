@@ -1,0 +1,8 @@
+---
+# defaults file for openresty
+openresty_download_url: http://openresty.org/download/openresty-1.9.15.1.tar.gz
+openresty_version: openresty-1.9.15.1
+openresty_home: /usr/local/openresty
+business_lua_path: "{{openresty_home}}/business-lua"
+business_html_template: "{{openresty_home}}/nginx/html/templates"
+nginx_log_path: /var/log/nginx

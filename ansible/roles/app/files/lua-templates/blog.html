@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Language" content="zh-CN"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{title}}</title>
+</head>
+   <body>
+     blogId: {{blogid}}<br/>
+     作者: {{author.name}} {{author.gender}} level: {{author.level}}<br/>
+     description: {{description}} <br/>
+     tags:  {% for i = 1, #context.tags do %}
+         {% if i > 1 then %},{% end %}
+         {* tags[i] *}
+      {% end %}<br/>
+</html>

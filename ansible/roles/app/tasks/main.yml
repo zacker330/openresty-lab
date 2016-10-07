@@ -1,0 +1,18 @@
+---
+- name: copy business_lua to "{{business_lua_path}}"
+  copy: src="business_lua/" dest="{{business_lua_path}}" owner=root group=root
+  notify: restart nginx
+  tags:
+    - app
+
+- name: copy template html
+  copy: src="lua-templates/" dest="{{business_html_template}}" owner=root group=root
+  notify: restart nginx
+  tags:
+    - app
+
+- name: copy app.conf to nginx servers
+  template: src="app.conf" dest="{{openresty_vhosts_path}}" owner=root group=root
+  notify: restart nginx
+  tags:
+    - app
