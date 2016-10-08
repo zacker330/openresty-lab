@@ -2,6 +2,7 @@
 user: cloud
 user_group: cloud
 
+isProduction: false
 
 ## openresty
 openresty_download_url: http://openresty.org/download/openresty-1.9.15.1.tar.gz
