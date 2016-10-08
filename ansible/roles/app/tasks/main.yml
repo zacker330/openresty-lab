@@ -1,12 +1,18 @@
 ---
 - name: copy business_lua to "{{business_lua_path}}"
-  copy: src="business_lua/" dest="{{business_lua_path}}" owner=root group=root
+  copy: src="business-lua/" dest="{{business_lua_path}}" owner=root group=root
   notify: restart nginx
   tags:
     - app
 
 - name: copy template html
   copy: src="lua-templates/" dest="{{business_html_template}}" owner=root group=root
+  notify: restart nginx
+  tags:
+    - app
+
+- name: copy public resource
+  copy: src="public" dest="{{public_static_resource_dir}}" owner=root group=root
   notify: restart nginx
   tags:
     - app

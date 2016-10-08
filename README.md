@@ -7,7 +7,7 @@ lua code is at folder `./ansible/app/files`
 
     ```
     .
-    ├── business_lua
+    ├── business-lua
     │   ├── blog.lua
     │   └── bloglist.lua
     └── lua-templates
