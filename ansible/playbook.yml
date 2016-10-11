@@ -13,4 +13,5 @@
   roles:
     - common
     - openresty
+    - redis
     - {role: "app", app_server_name: "192.168.8.10"}

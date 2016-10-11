@@ -52,6 +52,12 @@
     - install
     - openresty-plugin
 
+- name: mv resty-redis to right path
+  copy: src="lua-resty-redis-0.25/" dest="{{openresty_home}}/lualib/resty/" owner=root group=root
+  tags:
+    - install
+    - openresty-plugin
+
 - name: mkdir log folder
   file: path="{{nginx_log_path}}" owner=nobody group=root state=directory mode=0755
   tags:
