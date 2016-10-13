@@ -14,7 +14,7 @@
     - libc6-dev
 
 - name: download redis {{redis_download_url}}
-  get_url: url="{{redis_download_url}}" dest="/usr/local/src/" owner={{ user }} group={{ user_group }}
+  unarchive: src="{{redis_tar_file}}" dest="/usr/local/src/"
   when: redis.stat.exists == False
   tags:
     - install

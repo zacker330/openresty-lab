@@ -10,8 +10,36 @@ local    content = " java8的流式处理极大了简化我们对于集合、�
 local    tags = {"life", "lua", "openresty"}
 local    radar = {lua = 90, openresty = 80, nginx = 70}
 
+local a = ngx.var.a
+local b = ngx.var.b
+
+local red = redis:new()
+red:set_timeout(1000)
+local ok, err = red:connect("127.0.0.1", 6379)
+if not ok then
+   ngx.say("failed to connect: ", err)
+   return
+end
+
+local ok, err = red:set("a", a)
+if not ok then
+   ngx.say("failed to set a: ", err)
+   return
+end
+
+
+local ok, err = red:set("b", b)
+if not ok then
+   ngx.say("failed to set b: ", err)
+   return
+end
+
 %}
 <div>
+ a: {{a}}<br/>
+ b: {{b}}<br/>
+ sum from redis:
+
  blogId: {{blogid}}<br/>
  作者: {{author.name}} {{author.gender}} level: {{author.level}}<br/>
  description: {{description}} <br/>
