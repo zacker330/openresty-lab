@@ -21,24 +21,14 @@ if not ok then
    return
 end
 
-local ok, err = red:set("a", a)
-if not ok then
-   ngx.say("failed to set a: ", err)
-   return
-end
+local ok, err = red:lpush("list", "a", "b")
 
-
-local ok, err = red:set("b", b)
-if not ok then
-   ngx.say("failed to set b: ", err)
-   return
-end
+local member, err = red:llen("list")
 
 %}
 <div>
- a: {{a}}<br/>
- b: {{b}}<br/>
- sum from redis:
+ member: {{member}}<br/>
+
 
  blogId: {{blogid}}<br/>
  作者: {{author.name}} {{author.gender}} level: {{author.level}}<br/>
