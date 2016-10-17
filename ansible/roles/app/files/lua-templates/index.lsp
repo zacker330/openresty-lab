@@ -2,7 +2,7 @@
 
 layout = "layouts/default.lsp"
 
-local  blogid= ngx.var.blogid
+local  blogid= ngx.var.arg_blogId
 local  title = "博客标题"
 local    author = {name = "fooname", gender = "female", level= 3}
 local    description = "<script>alert(1);</script>"
